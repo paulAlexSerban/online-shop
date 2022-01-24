@@ -10,3 +10,7 @@
 ## Requirements
 
 - NodeJS v14.18.1
+
+## Architecture and Design
+* MVC (Model - View - Controller)
+  * [mdb - MVC](https://developer.mozilla.org/en-US/docs/Glossary/MVC)
