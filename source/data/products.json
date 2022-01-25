@@ -1,1 +1,1 @@
-[{"title":"test product"},{"title":"new product"},{"title":"second test book"},{"title":"extra product"}]
+[{"title":"first product","imageURL":"https://picsum.photos/200","description":"lorem description is added here","price":"20"},{"title":"second product","imageURL":"https://picsum.photos/200","description":"lorem ipsum text","price":"11"},{"title":"new product","imageURL":"https://picsum.photos/200","description":"lorem description text","price":"12.12"}]

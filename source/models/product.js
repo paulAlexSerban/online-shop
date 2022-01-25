@@ -42,24 +42,24 @@ const getProductsFromFile = (callback) => {
  */
 
 module.exports = class Product {
-  constructor(title) {
+  constructor(title, imageURL, description, price) {
     this.title = title;
+    this.imageURL = imageURL;
+    this.description = description;
+    this.price = price;
   }
 
   save() {
     /* 1 */
-    getProductsFromFile((products) => {
-      /* 1.1 */
+    getProductsFromFile((products) => { /* 1.1 */
       products.push(this); /* 1.2 */
-      fs.writeFile(productsPath, JSON.stringify(products), (err) => {
-        /* 1.3 */
+      fs.writeFile(productsPath, JSON.stringify(products), (err) => { /* 1.3 */
         console.log(err);
       });
     });
   }
 
-  static fetchAll(callback) {
-    /* 2 */
+  static fetchAll(callback) { /* 2 */
     getProductsFromFile(callback); /* 2.1 */
   }
 };
