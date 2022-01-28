@@ -49,8 +49,8 @@ module.exports = class Product {
     this.price = price;
   }
 
-  save() {
-    /* 1 */
+  save() { /* 1 */
+    this.id = ((Math.random() * Math.random() * Date.now()).toFixed()).toString();
     getProductsFromFile((products) => { /* 1.1 */
       products.push(this); /* 1.2 */
       fs.writeFile(productsPath, JSON.stringify(products), (err) => { /* 1.3 */
@@ -61,5 +61,12 @@ module.exports = class Product {
 
   static fetchAll(callback) { /* 2 */
     getProductsFromFile(callback); /* 2.1 */
+  }
+
+  static findById(id, callback) {
+    getProductsFromFile(products => { 
+      const product = products.find(p => p.id === id);
+      callback(product);
+    })
   }
 };
