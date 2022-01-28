@@ -1,5 +1,5 @@
 const Product = require('../models/product');
-
+const Cart = require('../models/cart');
 /**
  * getProducts()
  * - get all products from the database and render `shop.ejs` passing all the required properties
@@ -34,6 +34,14 @@ exports.getIndex = (req, res, next) => {
       path: '/'
     });
   });
+}
+
+exports.postCart = (req, res, next) => {
+  const prodId = req.body.productId;
+  Product.findById(prodId, product => {
+    Cart.addProduct(product.id, product.price);
+  })
+  res.redirect('/cart');
 }
 
 exports.getCart = (req, res, next) => {
