@@ -1,0 +1,20 @@
+{
+  "name": "online-shop",
+  "version": "2.0.0",
+  "main": "index.js",
+  "scripts": {
+    "//": "    INSTALL",
+    "install:dependencies": "npm install --prefix assets && npm install --prefix frontend/landing",
+    "///": "   BUILD",
+    "build:all": "npm run build:assets && npm run build:landing",
+    "build:assets": "npm run build --prefix assets",
+    "build:landing": "npm run build --prefix frontend/landing",
+    "////": "  DOCKER",
+    "start:compose": "docker-compose --env-file .env up -d --build",
+    "stop:compose": "docker-compose down --volumes --rmi all",
+    "/////": "DEVELOP",
+    "watch:fe:landing": "npm run watch:fe:landing --prefix frontend/landing"
+  },
+  "author": "",
+  "license": "ISC"
+}
